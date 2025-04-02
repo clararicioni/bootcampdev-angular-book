@@ -1,7 +1,7 @@
 //esse arquivo vai definir a estrutura de um objeto book.
 export interface Book{
-    id : number;
-    title : string;
-    author : string;
-    price : number;
+    id : number; //obrigatorio
+    title : string; 
+    author ?: string; //opcional
+    price ?: number;
 }
