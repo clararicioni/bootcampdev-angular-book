@@ -1,4 +1,4 @@
-<app-book [bookFilho]="newBook" (saveEmitter)="saveBook()"></app-book> <!-- entre aspas, está o book do componente pai. Entre colchetes, o input do componente filho. -->
+<app-book [bookFilho]="book" (saveEmitter)="saveBook()"></app-book> <!-- entre aspas, está o book do componente pai. Entre colchetes, o input do componente filho. -->
 <div class="container text-center p-2">
     <h3 class="mt-2">Livros Cadastrados</h3>
     <table class="table">
@@ -8,6 +8,7 @@
                 <th>Título</th>
                 <th>Autor</th>
                 <th>Preço</th>
+                <th>Opções</th>
             </tr>
         </thead>
         <tbody>
@@ -17,6 +18,10 @@
                 <td>{{book.title}}</td>
                 <td>{{book.author}}</td>
                 <td>{{book.price}}</td>
+                <td>
+                    <button class="btn btn-success me-2" (click)="update(book)">Alterar</button>
+                    <button class="btn btn-danger" (click)="remove(book)">Remover</button>
+                </td>
             </tr>
         </tbody>
     </table>
