@@ -13,6 +13,7 @@ import { BookComponent } from "../book/book.component";
 export class BooksComponent {
   book: Book = {} as Book; //vou passar esse objeto book do componente pai para o componente filho.
   isUpdate: boolean = false; //vai mudar o comportamento do botão Salvar se estiver true.
+  idCount: number = 4;
 
   books: Book[] = [
     { id: 1, title: "Java 24 horas", author: "Albert Einstein", price: 40.00 },
@@ -22,10 +23,12 @@ export class BooksComponent {
 
   saveBook() {
     if (!this.isUpdate) { //se é um update,
-      this.book.id = this.books.length + 1;
+      this.book.id = this.idCount;
+      this.idCount++;
       this.books.push(this.book); //o objeto book é adicionado ao array
     } 
       this.book = {} as Book; //para limpar o formulario, cria um novo objeto Book após salvar 
+      this.isUpdate = false;
   }
 
   update(selectedBook: Book) {
